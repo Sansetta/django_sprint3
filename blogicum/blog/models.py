@@ -5,7 +5,9 @@ User = get_user_model()
 
 
 class BaseModel(models.Model):
-    '''В этот класс вынесли общий фунционал'''
+    
+    """В этот класс вынесли общий фунционал"""
+    
     is_published = models.BooleanField(default=True,
                                        verbose_name='Опубликовано',
                                        help_text='Снимите галочку,'
@@ -18,7 +20,9 @@ class BaseModel(models.Model):
 
 
 class Post(BaseModel):
-    '''Класс публикация'''
+    
+    """Класс публикация"""
+    
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(verbose_name='Дата и время публикации',
@@ -45,7 +49,9 @@ class Post(BaseModel):
 
 
 class Category(BaseModel):
-    '''Класс категория'''
+    
+    """Класс категория"""
+    
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     description = models.TextField(verbose_name='Описание')
     slug = models.SlugField(max_length=64, unique=True,
@@ -63,7 +69,9 @@ class Category(BaseModel):
 
 
 class Location(BaseModel):
-    '''Класс местоположение'''
+    
+    """Класс местоположение"""
+    
     name = models.CharField(max_length=256, verbose_name='Название места')
 
     class Meta:
